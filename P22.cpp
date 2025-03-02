@@ -4,34 +4,47 @@
 using namespace std;
 #include <iostream>
 
-int main()
-{
-    int arr1[5], arr2[5];
-    cout << "Assignment 22- Implementing 2 1-D arrays" << endl;
+int main() {
+    int size;
 
-    cout << "Enter the elements of first array: " << endl;
-    for (int i = 0; i < 5; i++)
-    {
-        cin >> arr1[i];
+    // Ask the user for the size of the arrays
+    std::cout << "Enter the size of the arrays: ";
+    std::cin >> size;
+
+    // Declare two 1-D arrays
+    int* array1 = new int[size];
+    int* array2 = new int[size];
+
+    // Input values for array1
+    std::cout << "Enter " << size << " values for Array 1:\n";
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Value " << (i + 1) << ": ";
+        std::cin >> array1[i];
     }
 
-    cout << "Enter the elements of second array: " << endl;
-    for (int i = 0; i < 5; i++)
-    {
-        cin >> arr2[i];
+    // Input values for array2
+    std::cout << "Enter " << size << " values for Array 2:\n";
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Value " << (i + 1) << ": ";
+        std::cin >> array2[i];
     }
 
-    cout << "The elements of first array are: " << endl;
-    for (int i = 0; i < 5; i++)
-    {
-        cout << arr1[i] << " ";
+    // Print the contents of the arrays
+    std::cout << "\nArray 1: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << array1[i] << " ";
     }
+    std::cout << std::endl;
 
-    cout << "\nThe elements of second array are: " << endl;
-    for (int i = 0; i < 5; i++)
-    {
-        cout << arr2[i] << " ";
+    std::cout << "Array 2: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << array2[i] << " ";
     }
+    std::cout << std::endl;
+
+    // Free dynamically allocated memory
+    delete[] array1;
+    delete[] array2;
 
     return 0;
 }
